@@ -1,5 +1,5 @@
 set :application, "ABTT"
-set :repository,  "file:///git/abtt.git"
+set :repository,  "file:///git/abtt_new"
 
 #deploy_to is /u/apps/ABTT...
 

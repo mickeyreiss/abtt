@@ -1,0 +1,17 @@
+<h1>Members of ABTech</h1>
+<p>See also: <a href="https://www.abtech.org/wiki/bin/view/Main/WebHome?topic=PhoneList">https://www.abtech.org/wiki/bin/view/Main/WebHome?topic=PhoneList</a></p>
+<table class="generic">
+  <tr>
+  <% %w{first_name last_name nick_name phone email username callsign shirt_size created_at updated_at}.each do |column| %>
+    <th><%= table_order_link( column, column, @order) %></th>
+  <% end %>
+  </tr>
+  <% @members.each do |member| %>
+    <tr>
+    <% %w{first_name last_name nick_name phone email username callsign shirt_size created_at updated_at}.each do |column| %>
+      <td><%=h member.attributes[column] %></td>
+    <% end %>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New member', :action => 'new' %>

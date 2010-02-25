@@ -1,0 +1,42 @@
+# == Schema Information
+# Schema version: 20100115155237
+#
+# Table name: members
+#
+#  id            :integer         not null, primary key
+#  first_name    :string(255)
+#  last_name     :string(255)
+#  nick_name     :string(255)
+#  phone         :string(255)
+#  email         :string(255)
+#  username      :string(255)
+#  password_hash :string(255)
+#  callsign      :string(255)
+#  shirt_size    :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+sam:
+  first_name: Sam
+  last_name: ABTek
+  nick_name: ABTech
+  phone: 4121234567
+  email: sam@example.com
+  username: abtech
+  password_hash: MyString
+  callsign: k3zzz
+  shirt_size: M
+
+john:
+  first_name: John
+  last_name: Doe
+  nick_name: Johnny
+  phone: 8589999999
+  email: Johnny@example.org
+  username: john
+  password_hash: MyString
+  callsign: kb1zzz
+  shirt_size: L

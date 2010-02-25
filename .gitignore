@@ -1,4 +1,5 @@
 log/*.log
 tmp/**/*
-mkmf.log
-config/database.yml
+doc/api
+doc/app
+
