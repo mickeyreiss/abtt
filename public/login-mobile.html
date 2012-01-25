@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AB Tech Tracker - Authentication</title>
+
+<meta name="viewport" content="width=320px; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+<link rel="stylesheet" type="text/css" href="stylesheets/newlogin.css" />
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(function() {
+
+     
+      window.scrollTo(242,160);
+      $("input").blur(function() {
+        window.scrollTo(242,160);
+      });
+      
+      $("#form input[type!=submit]").hover(function() {
+        $(this).css({"box-shadow": "0 0 10px black"}); 
+        },
+        function() {
+        $(this).css({"box-shadow": "0 0 0 black"}); 
+      });
+
+    });
+  </script>
+
+ <script type="text/javascript">
+ $(document).ready(function(){
+    $('INPUT.field').each(function(i, el){
+        if($(this).val() == ''){
+            $(this).val($(this).attr('title'));
+        }
+        $(el).focus(function(){
+            if ($(this).val() == $(this).attr('title')) {
+                $(this).val('');
+            }       
+        });
+        $(el).blur(function(){
+            if ($(this).val() == '') {
+                $(this).val($(this).attr('title'));
+            }
+        });
+    });
+	
+ });
+ </script>
+</head>
+
+<body>
+<div id="login-wrap">
+
+	<div id="form">
+    	<div  class="error">Authentication failed. Try again.</div>   <!-- LOGIN ERROR STYLE **************** -->
+    	<form action="https://abtt.abtech.org/useraccount/login" method="post">
+        
+        	<input class="field" type="text" name="login" title="Username" /><br />
+            <input class="field" type="password" name="password" title="Password"  /><br />
+          
+
+             <div style="float:left;"><input type="checkbox" id="checkbox" class="checkbox" name="iphone" value="awesome" /><label>Mobile View</label></div>
+    
+          
+           <div style="float:right;"><input type="submit" name="commit" value="Log In" class="button" /></div>
+        
+        </form>
+    </div><!-- end form -->
+
+</div><!-- end login-wrap -->
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+  font-family:"Myriad Pro", "Helvetica", arial, sans-serif;
+  background: #000 url(/images/bodybg.jpg) no-repeat center top;
+	margin:0;
+}
+
+#login-wrap {
+	width:278px;
+	height:578px;
+	background:url(/images/badgebg.png) no-repeat;
+	margin:auto;
+	position:relative;
+}
+
+#form {
+	width:200px;
+	padding-top:410px;
+	padding-left: 40px;
+}
+
+#form input.field {
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	border: 1px solid #666;
+	font-size:13px;
+	height:23px;
+	width:180px;
+	line-height:23px;
+	padding-left:8px;
+	padding-right:8px;
+	margin-bottom:10px;
+	text-align:center;
+}
+#form input.field {
+  color: gray;
+}
+#form input.field:focus {
+	border:1px solid #000;
+	outline:none;
+}
+
+#form input.button {
+	background: url(/images/login.png) no-repeat;
+	width:80px;
+	height:26px;
+	text-indent:-9999px;
+	cursor: pointer;
+	border:none;
+}
+
+#form input.normalmargin {
+	margin-left:60px;	
+}
+
+
+
+#form input.button:hover {
+	background: url(/images/login-hover.png) no-repeat;
+}
+
+#form input.mobilecheck {
+	background:#FFFFFF;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	border: 1px solid #666;
+	width:14px;
+	heigth:14px;
+}
+
+#form label {
+	font-size:13px;
+	margin-left:5px;
+}
+
+#form .error {
+	font-size:12px;
+	color:#990000;
+	text-align:center;
+	margin:5px 0px 5px 1px;
+}
+
+@-webkit-keyframes box {
+  0% { -webkit-transform: rotate(0deg); }
+  33% { -webkit-transform: rotate(.5deg); }
+  66% { -webkit-transform: rotate(-.5deg); }
+}
+.windy {
+  -webkit-animation-name: box;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 0;
+}
+
