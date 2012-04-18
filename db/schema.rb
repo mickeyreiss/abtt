@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(:version => 95) do
   add_index "emails", ["event_id"], :name => "emails_event_id_index"
   add_index "emails", ["sender"], :name => "emails_sender_index"
   add_index "emails", ["subject"], :name => "emails_subject_index"
-  add_index "emails", ["contents"], :name => "emails_contents_index"
 
   create_table "equipment", :force => true do |t|
     t.integer "parent_id",   :null => false
