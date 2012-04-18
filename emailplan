@@ -1,0 +1,31 @@
+Emails are posted to the webapp.
+Emails are saved in full raw form with memoized metadata.
+Multipart emails, including attachments, shall be fully supported
+New emails are assigned a random unique id.
+
+Email metadata:
+- Unread per user and per email
+
+Queues exist within the app.
+
+Emails are a type of message.
+There are also phone calls and updates (internal messages).
+
+Emails can be tagged with multiple queues.
+Emails can be tagged with multiple events.
+
+Users can have read access on queues.
+Users can have write access on queues.
+
+Users can subscribe to a queue.
+Roles can subscribe to a queue.
+
+Subscriptions can be live, daily or weekly.
+
+Posting a new message causes it to a NOTIFICATION EMAIL to be sent to all users with live subscription.
+
+Users may respond to NOTIFICATION EMAILS via a unique reply-to address in order to respond directly to emails.
+
+Users may respond to messages with messages, which are automatically tagged with the same message and queue.
+
+Users may view all messages without any queues, which are considered unqueued.
