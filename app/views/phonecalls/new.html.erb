@@ -1,0 +1,17 @@
+<h1>Record a new Phonecall</h1>
+
+<% form_tag phonecalls_path do %>
+  <p>
+    <%= label_tag "phonecall[subject]", "Subject" %>:
+    <%= text_field_tag "phonecall[subject]" %>
+  </p>
+  <p>
+    <%= label_tag "phonecall[phonenumber]", "Phone Number" %>:
+    <%= text_field_tag "phonecall[phonenumber]" %>
+  </p>
+  <p>
+    <%= label_tag "phonecall[body]", "Message" %>:<br>
+    <%= text_area_tag "phonecall[body]", "", {:cols => 80, :rows => 25} %>
+  </p>
+  <%= submit_tag %>
+<% end %>

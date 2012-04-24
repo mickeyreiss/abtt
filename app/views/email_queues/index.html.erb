@@ -1,0 +1,35 @@
+<h1>Manage Email Queues</h1>
+
+<table class="generic">
+  <thead>
+    <tr>
+      <th>Queue</th>
+      <th>Messages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        INBOX
+      </td>
+      <td>
+        <%= pluralize @inbox.count, "message" %>
+      </td>
+    </tr>
+    <% @queues.each do |q| %>
+      <tr>
+        <td><%= link_to q, q %></td>
+        <td><%= pluralize q.message_count, "message" %> (<%= q.global_unread_count %> unread)</td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan=2 align="right"><%= pluralize @queues.size, "queue" %></td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>
+<%= link_to "Create a new Queue", new_email_queue_path %>
+</p>

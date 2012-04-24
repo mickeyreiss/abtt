@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  live: false
+  daily: false
+  weekly: false
+  member_id: 1
+  role_id: 1
+
+two:
+  live: false
+  daily: false
+  weekly: false
+  member_id: 1
+  role_id: 1

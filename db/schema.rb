@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 95) do
+ActiveRecord::Schema.define(:version => 99) do
 
   create_table "accounts", :force => true do |t|
     t.string  "name",      :null => false
@@ -43,24 +43,56 @@ ActiveRecord::Schema.define(:version => 95) do
     t.datetime "updated_on"
   end
 
+  create_table "email_assignments", :force => true do |t|
+    t.integer  "email_id"
+    t.integer  "assigner_id"
+    t.integer  "assignable_id"
+    t.string   "assignable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "email_flags", :force => true do |t|
+    t.integer  "email_id"
+    t.integer  "member_id"
+    t.boolean  "read"
+    t.boolean  "requires_follow_up"
+    t.boolean  "blocking"
+    t.boolean  "closed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "email_forms", :force => true do |t|
     t.string "description", :null => false
     t.text   "contents",    :null => false
   end
 
-  create_table "emails", :force => true do |t|
-    t.integer  "event_id",                      :null => false
-    t.string   "sender",     :default => "",    :null => false
-    t.datetime "timestamp",                     :null => false
-    t.text     "contents",                      :null => false
-    t.string   "status",     :default => "New", :null => false
-    t.string   "subject"
-    t.string   "message_id",                    :null => false
+  create_table "email_queues", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "emails", ["event_id"], :name => "emails_event_id_index"
-  add_index "emails", ["sender"], :name => "emails_sender_index"
-  add_index "emails", ["subject"], :name => "emails_subject_index"
+  create_table "email_subscriptions", :force => true do |t|
+    t.boolean  "live"
+    t.boolean  "daily"
+    t.boolean  "weekly"
+    t.integer  "member_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "emails", :force => true do |t|
+    t.binary   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "global_read"
+    t.boolean  "global_requires_follow_up"
+    t.boolean  "global_blocking"
+    t.boolean  "global_closed"
+  end
 
   create_table "equipment", :force => true do |t|
     t.integer "parent_id",   :null => false
@@ -74,7 +106,7 @@ ActiveRecord::Schema.define(:version => 95) do
 
   create_table "equipment_categories", :force => true do |t|
     t.string  "name",      :null => false
-    t.integer "parent_id", :null => false
+    t.integer "parent_id"
     t.integer "position",  :null => false
   end
 

@@ -1,0 +1,12 @@
+<h1>Create a new Email Queue</h1>
+
+<% form_for @queue do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %>:
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>

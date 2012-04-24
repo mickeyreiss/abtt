@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  email_id: 1
+  member_id: 1
+  read: false
+  requires_follow_up: false
+  blocking: false
+  closed: false
+
+two:
+  email_id: 1
+  member_id: 1
+  read: false
+  requires_follow_up: false
+  blocking: false
+  closed: false

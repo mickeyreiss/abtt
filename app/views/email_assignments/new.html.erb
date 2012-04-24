@@ -1,0 +1,32 @@
+<h1>Assign to Member</h1>
+<% form_for @email_assignment, :url => email_email_assignments_path do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :assignable_type, :value => "Member" %>
+
+  Assign 
+  <%= f.collection_select :assignable_id, @members, :id, :fullname %> to <%= @email %>
+  <%= f.submit %>
+<% end %>
+
+<h1>Assign to Event</h1>
+<% form_for @email_assignment, :url => email_email_assignments_path do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :assignable_type, :value => "Event" %>
+
+  Assign 
+  <%= f.collection_select :assignable_id, @events, :id, :to_s %> to <%= @email %>
+  <%= f.submit %>
+<% end %>
+
+<h1>Add to Queue</h1>
+<% form_for @email_assignment, :url => email_email_assignments_path do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :assignable_type, :value => "EmailQueue" %>
+
+  Assign 
+  <%= f.collection_select :assignable_id, @email_queues, :id, :to_s %> to <%= @email %>
+  <%= f.submit %>
+<% end %>

@@ -52,4 +52,10 @@ end
 # Include your application configuration below
 ActionView::Base.field_error_proc = proc { |input, instance| input }
 
-  Mime::Type.register "text/vcard", :vcf
+Mime::Type.register "text/vcard", :vcf
+
+require 'mail'
+# Because Mail is not fully compatible with this version of rails...ActiveSupport is loaded before Mail yet it doesn't contain the mb_chars method, which is necessary for Mail's header parsing.
+require 'mail/core_extensions/string/access'
+require 'mail/core_extensions/string/multibyte'
+require 'mail/multibyte'

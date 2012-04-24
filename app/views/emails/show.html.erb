@@ -1,0 +1,52 @@
+<h1><%= link_to '&larr;', emails_path %> <%= @email.subject or "Email #{@email.id}" %></h1>
+
+<div class="email_toolbar">
+  <%= link_to "Reply" %>
+  <%= link_to "Forward" %>
+  <%= link_to "Assign to Entity", new_email_email_assignment_path(@email) %>
+</div>
+
+<div class="email_message">
+  <ul class="email_headers">
+    <li><strong>From</strong>: <%= @email.from %></li>
+    <li><strong>Reply To</strong>: <%= @email.email.reply_to %></li>
+    <li><strong>To</strong>: <%= @email.to %></li>
+    <li><strong>CC</strong>: <%= @email.email.cc %></li>
+    <li><strong>BCC</strong>: <%= @email.email.bcc %></li>
+    <li><strong>Date</strong>: <%= @email.date %></li>
+    <li><strong>Subject</strong>: <%= @email.subject %></li>
+  </ul>
+  <pre>
+    <%= @email.body %>
+  </pre>
+</div>
+
+<h2>Assignments</h2>
+<ul>
+<% @email.email_assignments.each do |assignment| %>
+  <li>
+    Assigned to <%= link_to assignment.assignable, assignment.assignable %> by <%= assignment.assigner %> on <%= assignment.created_at %>
+
+    <%= link_to "[X]", email_email_assignment_path({:id => assignment, :email_id => 2}), :method => :delete, :confirm => "Are you sure you want to delete this assignment?" %>
+  </li>
+<% end %>
+</ul>
+
+
+<h2>Respond</h2>
+<% form_for @response, :url => email_email_responses_path(:email_id => @email) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :from %>: <%= f.text_field :from %>
+  </p>
+  <p>
+    <%= f.label :to %>: <%= f.text_field :to %>
+  </p>
+  <p>
+    <%= f.label :subject %>: <%= f.text_field :subject %>
+  </p>
+  <p>
+    <%= f.label :body %>: <%= f.text_area :body %>
+  </p>
+  <%= f.submit "Send" %>
+<% end %>

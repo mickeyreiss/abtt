@@ -8,13 +8,10 @@
                     <% @event.emails.each do |email| %>
                         <tr>
                         <td>
-                            <% if(Email::Email_Status_Group_New.include?(email.status)) %>
-                                <img src="/images/emailicon.png" />
-                            <% end %>
                         </td>
                         <td align="left">
                             <a href="#email<%= email.id %>">
-                                <%= email.timestamp.strftime("%A, %B %d at %I:%M %p") %> - <%= email.subject %>
+                                <%= email.date.strftime("%A, %B %d at %I:%M %p") %> - <%= email.subject %>
                             </a>
                         </td>
                         </tr>
@@ -44,10 +41,10 @@
                         <br>
                     <% end %>
                     <strong>
-                        <%= email.timestamp.strftime("%A, %B %d at %I:%M %p") %> - <%= email.subject %>
+                        <%= email.date.strftime("%A, %B %d at %I:%M %p") %> - <%= email.subject %>
                     </strong><br>
 
-                    <%= simple_format(email.headerless_contents) %>
+                  <pre><%= email.body %></pre>
                 </td>
             </tr>
             <% alternate = !alternate %>

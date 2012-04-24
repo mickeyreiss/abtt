@@ -252,3 +252,31 @@ td.three_events, td.three_events span { background: #FFFDA6; }
 td.four_events, td.four_events span { background: #FFD9A6; }
 td.more_events, td.more_events span { background: #FFA6A6; }
 td.blackout_event, td.blackout_event span { background: #999999; color: #DDDDDD }
+
+/* ===== EMAIL ===== */
+div .email_toolbar {
+  width: 75%;
+  margin: 5px;
+}
+
+div .email_message {
+  width: 75%;
+  margin: 5px;
+  background: #fafafa;
+  border: 1px solid #bbb;
+  padding: 5px;
+}
+
+div .email_message ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+div .email_message li {
+  display: block;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}

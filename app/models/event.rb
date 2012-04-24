@@ -1,5 +1,4 @@
 class Event < ActiveRecord::Base
-  has_many                :emails, :order => "timestamp DESC";
   has_many                :eventdates, :dependent => :destroy, :order => "startdate ASC";
   has_many                :event_roles, :dependent => :destroy;
   has_many                :invoices, :dependent => :destroy;
@@ -8,6 +7,9 @@ class Event < ActiveRecord::Base
   belongs_to              :year;
 
   has_many                :attachments
+
+  has_many :email_assignments, :as => :assignable, :dependent => :destroy
+  has_many :emails, :through => :email_assignments
   
   EmailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/;
   PhoneRegex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
@@ -50,7 +52,7 @@ class Event < ActiveRecord::Base
 
   validates_presence_of     :title, :status, :organization, :eventdates
   validates_inclusion_of    :status, :in => Event_Status_Group_All;
-  validates_associated      :organization, :emails, :event_roles, :eventdates;
+  validates_associated      :organization, :event_roles, :eventdates;
   validates_format_of       :contactemail, :with => Event::EmailRegex;
 
   def locations

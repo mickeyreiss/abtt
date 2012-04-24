@@ -2,9 +2,16 @@ Emails are posted to the webapp.
 Emails are saved in full raw form with memoized metadata.
 Multipart emails, including attachments, shall be fully supported
 New emails are assigned a random unique id.
+- Per user and per email
 
 Email metadata:
 - Unread per user and per email
+- Requires Follow up
+- Blocking (i.e. waiting for something external)
+- Closed (i.e. taken care of)
+
+Emails can be assigned to a member for follow up.
+Follow up has an expiration date.
 
 Queues exist within the app.
 
@@ -23,6 +30,7 @@ Roles can subscribe to a queue.
 Subscriptions can be live, daily or weekly.
 
 Posting a new message causes it to a NOTIFICATION EMAIL to be sent to all users with live subscription.
+- Per user and per email
 
 Users may respond to NOTIFICATION EMAILS via a unique reply-to address in order to respond directly to emails.
 

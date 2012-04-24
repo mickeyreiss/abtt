@@ -1,0 +1,56 @@
+<%= link_to "All", emails_path %> |
+<%= link_to "My Email", member_emails_path(:member_id => current_member.id) %>
+<br>
+BY QUEUE: <%= @email_queues.collect {|eq| link_to eq, email_queue_emails_path(eq) }.join ' | ' %>
+<br>
+BY MEMBER: <%= @members_with_assignments.collect {|m| link_to m, member_emails_path(:member_id => m) }.join ' | ' %>
+
+<h1>Message Queue</h1>
+<%= link_to "Record new Phonecall", new_phonecall_path %>
+<br>
+<br>
+
+<table class="generic">
+  <thead>
+    <tr>
+      <th>Global Flags</th>
+      <th>Personal Flags</th>
+      <th>Assignments</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Subject</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tr>
+
+  </tr>
+  <% @emails.each do |email| %>
+    <tr onclick="window.location='<%= email_path(email) %>'">
+      <td>
+        <%= email.flags %>
+      </td>
+      <td>
+        <%= current_member.email_flags %>
+      </td>
+      <td>
+        <%= email.assignments %>
+      </td>
+      <td>
+        <%= email.from %>
+      </td>
+      <td>
+        <%= email.to %>
+      </td>
+      <td>
+        <%= email.subject %>
+      </td>
+      <td>
+        <%= email.date %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p>
+  <strong><%= pluralize @emails.count, "emails" %></strong>
+</p>

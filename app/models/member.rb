@@ -33,6 +33,10 @@ class Member < ActiveRecord::Base
   has_many :timecard_entries
   has_many :timecards, :through => :timecard_entries, :uniq => true
 
+  has_many :email_assignments, :as => :assignable, :dependent => :destroy
+  has_many :emails, :through => :email_assignments
+  has_many :email_flags
+
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 

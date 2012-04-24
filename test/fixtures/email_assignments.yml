@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  email_id: 1
+  assigner_id: 1
+  assignee_id: 1
+
+two:
+  email_id: 1
+  assigner_id: 1
+  assignee_id: 1

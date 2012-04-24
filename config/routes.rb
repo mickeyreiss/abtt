@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :permissions
   map.resources :roles
   map.resources :locations
-  map.resources :members, :collection => [:edit_self]
+  map.resources :members, :collection => [:edit_self], :has_many => :emails
   map.resources :accounts, :collection => {:list => :get, :unpaid => :get, :unpaid_print => :get, :events => :get}
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -36,6 +36,12 @@ ActionController::Routing::Routes.draw do |map|
                 :collection => [:calendar, :iphone, :mobile, :lost]
 
   map.resources :attachments, :only => ["index", "destroy"]
+
+  map.resources :emails, :has_many => [:email_assignments, :email_responses]
+
+  map.resources :email_queues, :has_many => :emails
+
+  map.resources :phonecalls
 
   map.connect "login", :controller => "useraccount", :action => "login"
   map.connect "logout", :controller => "useraccount", :action => "logout"
